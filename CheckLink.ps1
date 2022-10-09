@@ -71,10 +71,10 @@ if (!$cproc.ProcessName) {
     $cityProc='9'
 }
 
-$uid_code="hjgTGSSD56GDSgshjgfkyUH5667kjhfgxyrxc12GS"
+$uid_code="some_code"
 
 $curr_time=Get-Date -Format "yyyy-MM-dd HH:mm"
 
-$R = Invoke-WebRequest -URI https://csapi.adlab.ru/tgmedia/checklink/?mfname=$name"&"mftime=$curr_time"&"mfuptime=$uptime"&"mfip=$compIP"&"led=$ledProc"&"city=$cityProc"&"UID=$uid_code -UseBasicParsing
+$R = Invoke-WebRequest -URI https://[_url_]/tgmedia/checklink/?mfname=$name"&"mftime=$curr_time"&"mfuptime=$uptime"&"mfip=$compIP"&"led=$ledProc"&"city=$cityProc"&"UID=$uid_code -UseBasicParsing
 
 $R
