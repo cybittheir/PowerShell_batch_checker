@@ -4,36 +4,26 @@ function Get-Uptime {
    $os = Get-WmiObject win32_operatingsystem
    $Uptime = (Get-Date) - ($os.ConvertToDateTime($os.lastbootuptime))
    return [math]::Round($Uptime.TotalMinutes, 0)
-
 }
 
 $curr_hour=Get-Date -Format "HH"
 
 if ($curr_hour -eq 10) {
-
 	net start w32time
-
 	W32Tm /resync
-
 }
 
 if ($curr_hour -eq 17) {
-
 	net start w32time
-
 	W32Tm /resync
-
 }
 
 $ipaddr=Get-NetIPAddress -IPAddress 192.168.*
 
 if(!$ipaddr) {
-
 	$textip=Get-Content C:\TEMP\tmp_ip.txt
 	$compIP=$textip.SubString(38)
-
 } else {
-
 	$compIP=$ipaddr.IPAddress
 }
 
