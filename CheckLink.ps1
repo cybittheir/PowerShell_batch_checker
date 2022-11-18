@@ -45,20 +45,20 @@ if (!$uptime) {
     $uptime=Get-Uptime
 }
 
-$proc=Get-Process LedStudio*
-
-if (!$proc.ProcessName) {
-    $ledProc='1'
-} else {
-    $ledProc=$cproc
-}
-
 $cproc=Get-Process cityscreen-player*
 
 if (!$cproc.ProcessName) {
     $cityProc='1'
 } else {
-    $cityProc=$cproc
+    $cityProc='9'
+}
+
+$proc=Get-Process LedStudio*
+
+if (!$proc.ProcessName) {
+    $ledProc='1'
+} else {
+    $ledProc='9'
 }
 
 $cproc=Get-Process trackerboard-http-responder*
@@ -66,7 +66,7 @@ $cproc=Get-Process trackerboard-http-responder*
 if (!$cproc.ProcessName) {
     $WFRProc='1'
 } else {
-    $WFRProc=$cproc
+    $WFRProc='9'
 }
 
 $curr_time=Get-Date -Format "yyyy-MM-dd HH:mm"
