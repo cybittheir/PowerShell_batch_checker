@@ -69,12 +69,8 @@ if (!$cproc.ProcessName) {
     $WFRProc=$cproc
 }
 
-$uid_code="hjgTGSSD56GDSgshjgfkyUH5667kjhfgxyrxc12GS"
-
 $curr_time=Get-Date -Format "yyyy-MM-dd HH:mm"
 
-$url="csapi.adlab.ru/tgmedia/checklink/"
-
-$R = Invoke-WebRequest -URI https://$url"?"mfname=$name"&"mftime=$curr_time"&"mfuptime=$uptime"&"mfip=$compIP"&"city=$cityProc"&"led=$ledProc"&"wfr=$WFRProc"&"UID=$uid_code -UseBasicParsing
+. conf.ps1
 
 $R
