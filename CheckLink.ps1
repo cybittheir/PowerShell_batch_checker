@@ -45,7 +45,7 @@ if (!$uptime) {
     $uptime=Get-Uptime
 }
 
-$proc=Get-Process LedStudio -FileVersionInfo
+$proc=Get-Process LedStudio*
 
 if (!$proc.ProcessName) {
     $ledProc='1'
@@ -53,7 +53,7 @@ if (!$proc.ProcessName) {
     $ledProc=$cproc
 }
 
-$cproc=Get-Process cityscreen-player -FileVersionInfo
+$cproc=Get-Process cityscreen-player*
 
 if (!$cproc.ProcessName) {
     $cityProc='1'
@@ -61,7 +61,7 @@ if (!$cproc.ProcessName) {
     $cityProc=$cproc
 }
 
-$cproc=Get-Process trackerboard-http-responder -FileVersionInfo
+$cproc=Get-Process trackerboard-http-responder*
 
 if (!$cproc.ProcessName) {
     $WFRProc='1'
@@ -69,10 +69,12 @@ if (!$cproc.ProcessName) {
     $WFRProc=$cproc
 }
 
-$uid_code="some_code"
+$uid_code="hjgTGSSD56GDSgshjgfkyUH5667kjhfgxyrxc12GS"
 
 $curr_time=Get-Date -Format "yyyy-MM-dd HH:mm"
 
-$R = Invoke-WebRequest -URI https://[_url_]/tgmedia/checklink/?mfname=$name"&"mftime=$curr_time"&"mfuptime=$uptime"&"mfip=$compIP"&"led=$ledProc"&"city=$cityProc"&"wfr=$WFRProc"&"UID=$uid_code -UseBasicParsing
+$url="csapi.adlab.ru/tgmedia/checklink/"
+
+$R = Invoke-WebRequest -URI https://$url"?"mfname=$name"&"mftime=$curr_time"&"mfuptime=$uptime"&"mfip=$compIP"&"led=$ledProc"&"led=$WFRProc"&"city=$cityProc"&"UID=$uid_code -UseBasicParsing
 
 $R
