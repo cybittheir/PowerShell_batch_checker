@@ -45,28 +45,28 @@ if (!$uptime) {
     $uptime=Get-Uptime
 }
 
-$proc=Get-Process LedStudio
+$proc=Get-Process LedStudio -FileVersionInfo
 
 if (!$proc.ProcessName) {
     $ledProc='1'
 } else {
-    $ledProc='9'
+    $ledProc=$cproc
 }
 
-$cproc=Get-Process cityscreen-player
+$cproc=Get-Process cityscreen-player -FileVersionInfo
 
 if (!$cproc.ProcessName) {
     $cityProc='1'
 } else {
-    $cityProc='9'
+    $cityProc=$cproc
 }
 
-$cproc=Get-Process trackerboard-http-responder
+$cproc=Get-Process trackerboard-http-responder -FileVersionInfo
 
 if (!$cproc.ProcessName) {
     $WFRProc='1'
 } else {
-    $WFRProc='9'
+    $WFRProc=$cproc
 }
 
 $uid_code="some_code"
